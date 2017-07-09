@@ -58,16 +58,16 @@ public class TestJPAConfig implements TransactionManagementConfigurer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        driver=props.getProperty("dataSource.driverClassName");
-        url=props.getProperty("dataSource.url");
-        username=props.getProperty("dataSource.username");
-        password=props.getProperty("dataSource.password");
-        dialect=props.getProperty("hibernate.dialect");
-        hbm2ddlAuto=props.getProperty("hibernate.hbm2ddl.auto");
+        driver = props.getProperty("dataSource.driverClassName");
+        url = props.getProperty("dataSource.url");
+        username = props.getProperty("dataSource.username");
+        password = props.getProperty("dataSource.password");
+        dialect = props.getProperty("hibernate.dialect");
+        hbm2ddlAuto = props.getProperty("hibernate.hbm2ddl.auto");
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         Log4jdbcProxyDataSource dataSource = new Log4jdbcProxyDataSource(customDataSource());
         Log4JdbcCustomFormatter log4JdbcCustomFormatter = new Log4JdbcCustomFormatter();
         log4JdbcCustomFormatter.setLoggingType(LoggingType.SINGLE_LINE);
@@ -127,13 +127,22 @@ public class TestJPAConfig implements TransactionManagementConfigurer {
     }
 
     @Bean
-    UserService userService(){
+    UserService userService() {
         return new UserServiceImpl();
     }
 
     @Bean
-    RoleService roleService(){ return new RoleServiceImpl(); }
+    RoleService roleService() {
+        return new RoleServiceImpl();
+    }
 
     @Bean
-    PublishingHouseService publishingHouseService(){ return new PublishingHouseServiceImpl(); }
+    PublishingHouseService publishingHouseService() {
+        return new PublishingHouseServiceImpl();
+    }
+
+    @Bean
+    GenreService genreService() {
+        return new GenreServiceImpl();
+    }
 }

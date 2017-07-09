@@ -1,12 +1,14 @@
 package provectus.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import provectus.dao.PublishingHouseRepository;
 import provectus.models.PublishingHouse;
 
 /**
  * Created by Gvozd on 10.07.2017.
  */
+@Service
 public class PublishingHouseServiceImpl implements PublishingHouseService {
 
     @Autowired
